@@ -1156,7 +1156,7 @@ render_html(
     """
     <div class="hero-container">
         <div class="hero-headline">Find government schemes <span class="hero-highlight">tailored to your situation.</span></div>
-        <div class="hero-subtitle">Search over 4,600 central & state welfare programs using natural language. Just describe your background, need, or life scenario.</div>
+        <div class="hero-subtitle">Search over 3,400 central & state welfare programs using natural language. Just describe your background, need, or life scenario.</div>
     </div>
     """
 )
