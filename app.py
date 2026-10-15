@@ -324,42 +324,97 @@ div[data-testid="stTextInput"] > div > div > input::placeholder {
     font-weight: 400 !important;
 }
 
-/* Action button in search bar row (Search / Clear) */
-button[kind="primary"] {
+/* Action button in search bar row (Search / Clear) - ALWAYS Pure Crisp White Text */
+button[kind="primary"],
+button[data-testid="stBaseButton-primary"],
+button[data-testid="baseButton-primary"],
+div[data-testid="stHorizontalBlock"] button[kind="primary"],
+div[data-testid="stHorizontalBlock"] button[data-testid*="primary"] {
     background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%) !important;
     border: 1px solid #4338CA !important;
-    color: #FFFFFF !important;
     border-radius: 9999px !important;
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
     min-height: 52px !important;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25) !important;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28) !important;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    color: #FFFFFF !important;
 }
 
-button[kind="primary"]:hover {
+button[kind="primary"] *,
+button[data-testid="stBaseButton-primary"] *,
+button[data-testid="baseButton-primary"] *,
+button[kind="primary"] p,
+button[data-testid="stBaseButton-primary"] p,
+button[data-testid="baseButton-primary"] p,
+button[kind="primary"] span,
+button[data-testid="stBaseButton-primary"] span,
+button[kind="primary"] div,
+button[data-testid="stBaseButton-primary"] div,
+div[data-testid="stHorizontalBlock"] button[kind="primary"] *,
+div[data-testid="stHorizontalBlock"] button[kind="primary"] p,
+div[data-testid="stHorizontalBlock"] button[kind="primary"] span,
+div[data-testid="stHorizontalBlock"] button[kind="primary"] div,
+div[data-testid="stHorizontalBlock"] button[data-testid*="primary"] *,
+div[data-testid="stHorizontalBlock"] button[data-testid*="primary"] p,
+div[data-testid="stHorizontalBlock"] button[data-testid*="primary"] span {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    opacity: 1 !important;
+}
+
+button[kind="primary"]:hover,
+button[data-testid="stBaseButton-primary"]:hover,
+button[data-testid="baseButton-primary"]:hover,
+div[data-testid="stHorizontalBlock"] button[kind="primary"]:hover,
+div[data-testid="stHorizontalBlock"] button[data-testid*="primary"]:hover {
     background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%) !important;
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35) !important;
+    border-color: #3730A3 !important;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4) !important;
     transform: translateY(-1px) !important;
+}
+
+button[kind="primary"]:hover *,
+button[data-testid="stBaseButton-primary"]:hover *,
+div[data-testid="stHorizontalBlock"] button[kind="primary"]:hover * {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
 }
 
 /* Clear button alongside search */
 button[key="clear_search_btn"],
-div:has(> button[key="clear_search_btn"]) button {
+div:has(> button[key="clear_search_btn"]) button,
+div[data-testid="stHorizontalBlock"] button[key="clear_search_btn"] {
     border-radius: 9999px !important;
     min-height: 52px !important;
     border: 1.5px solid #CBD5E1 !important;
     background: #FFFFFF !important;
     color: #475569 !important;
     font-weight: 600 !important;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
     transition: all 0.2s ease !important;
 }
 
+button[key="clear_search_btn"] *,
+div:has(> button[key="clear_search_btn"]) button *,
+div[data-testid="stHorizontalBlock"] button[key="clear_search_btn"] * {
+    color: #475569 !important;
+    font-weight: 600 !important;
+}
+
 button[key="clear_search_btn"]:hover,
-div:has(> button[key="clear_search_btn"]) button:hover {
+div:has(> button[key="clear_search_btn"]) button:hover,
+div[data-testid="stHorizontalBlock"] button[key="clear_search_btn"]:hover {
     background: #F1F5F9 !important;
-    color: #0F172A !important;
     border-color: #94A3B8 !important;
+}
+
+button[key="clear_search_btn"]:hover *,
+div:has(> button[key="clear_search_btn"]) button:hover *,
+div[data-testid="stHorizontalBlock"] button[key="clear_search_btn"]:hover * {
+    color: #0F172A !important;
 }
 
 /* Pinterest-style Trending Scenarios Ribbon & Pills */
@@ -376,8 +431,8 @@ div:has(> button[key="clear_search_btn"]) button:hover {
     margin-bottom: 12px;
 }
 
-/* Scenario Quick-Pill Buttons */
-div[data-testid="stHorizontalBlock"] button {
+/* Scenario Quick-Pill Buttons (ONLY target secondary scenario buttons) */
+div[data-testid="stHorizontalBlock"] button:not([kind="primary"]):not([data-testid*="primary"]):not([key="clear_search_btn"]) {
     border-radius: 9999px !important;
     border: 1px solid #E2E8F0 !important;
     background-color: #FFFFFF !important;
@@ -390,15 +445,24 @@ div[data-testid="stHorizontalBlock"] button {
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-div[data-testid="stHorizontalBlock"] button:hover {
+div[data-testid="stHorizontalBlock"] button:not([kind="primary"]):not([data-testid*="primary"]):not([key="clear_search_btn"]) * {
+    color: #334155 !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+}
+
+div[data-testid="stHorizontalBlock"] button:not([kind="primary"]):not([data-testid*="primary"]):not([key="clear_search_btn"]):hover {
     border-color: #818CF8 !important;
     background-color: #EEF2FF !important;
-    color: #4338CA !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 16px rgba(99, 102, 241, 0.15) !important;
 }
 
-div[data-testid="stHorizontalBlock"] button:active {
+div[data-testid="stHorizontalBlock"] button:not([kind="primary"]):not([data-testid*="primary"]):not([key="clear_search_btn"]):hover * {
+    color: #4338CA !important;
+}
+
+div[data-testid="stHorizontalBlock"] button:not([kind="primary"]):not([data-testid*="primary"]):not([key="clear_search_btn"]):active {
     transform: translateY(0) !important;
 }
 
@@ -883,11 +947,24 @@ details.scheme-drawer[open] .chevron-icon {
     transition: all 0.2s ease;
 }
 
+.drawer-action-btn *,
+.drawer-action-btn span,
+.drawer-action-btn svg {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
 .drawer-action-btn:hover {
     background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%);
     box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
     transform: translateY(-1px);
     color: #FFFFFF !important;
+}
+
+.drawer-action-btn:hover * {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
 }
 
 /* Comparison View Column Subheaders */
@@ -1105,7 +1182,7 @@ with col_search:
     )
 with col_action:
     if st.session_state.get("search_query", ""):
-        st.button("✕ Clear", key="clear_search_btn", on_click=clear_search_query, use_container_width=True)
+        st.button("Clear", key="clear_search_btn", on_click=clear_search_query, use_container_width=True)
     else:
         st.button("Search", type="primary", key="main_search_btn", use_container_width=True)
 
@@ -1116,12 +1193,12 @@ render_html(
 )
 
 prompts = [
-    ("🎓  College Student Laptop", "college student laptop assistance"),
-    ("🌾  Farmer Equipment Loan", "my father is a farmer and needs a loan for equipment"),
-    ("👩‍👧  Widow School Allowance", "financial help for widow with school-going children"),
-    ("☀️  Rooftop Solar Subsidy", "subsidy for solar panel installation on rooftop"),
-    ("♿  Disability Fellowship", "fellowship for disabled students in higher education"),
-    ("💼  Rural Startup Funding", "I want to start a small business in rural area")
+    ("College Student Laptop", "college student laptop assistance"),
+    ("Farmer Equipment Loan", "my father is a farmer and needs a loan for equipment"),
+    ("Widow School Allowance", "financial help for widow with school-going children"),
+    ("Rooftop Solar Subsidy", "subsidy for solar panel installation on rooftop"),
+    ("Disability Fellowship", "fellowship for disabled students in higher education"),
+    ("Rural Startup Funding", "I want to start a small business in rural area")
 ]
 
 row1_cols = st.columns(3)
