@@ -1092,6 +1092,9 @@ if "search_query" not in st.session_state:
 def set_quick_query(prompt: str):
     st.session_state.search_query = prompt
 
+def clear_search_query():
+    st.session_state.search_query = ""
+
 col_search, col_action = st.columns([5, 1], gap="small")
 with col_search:
     query = st.text_input(
@@ -1102,9 +1105,7 @@ with col_search:
     )
 with col_action:
     if st.session_state.get("search_query", ""):
-        if st.button("✕ Clear", key="clear_search_btn", use_container_width=True):
-            st.session_state.search_query = ""
-            st.rerun()
+        st.button("✕ Clear", key="clear_search_btn", on_click=clear_search_query, use_container_width=True)
     else:
         st.button("Search", type="primary", key="main_search_btn", use_container_width=True)
 
@@ -1228,11 +1229,14 @@ def render_scheme_card(row, method: str):
         tag_elements = "".join([f'<span class="drawer-tag-chip">#{html.escape(t)}</span>' for t in tag_list])
 
     # Direct portal verification link
-    slug_val = str(row.get('slug', row.get('scheme_id', ''))).strip()
-    if slug_val and slug_val != 'nan':
-        myscheme_url = f"https://www.myscheme.gov.in/schemes/{slug_val}"
+    raw_slug = row.get('slug')
+    if pd.isna(raw_slug) or str(raw_slug).lower() in ('nan', 'none', ''):
+        raw_slug = row.get('scheme_id')
+    slug_str = str(raw_slug).strip() if pd.notna(raw_slug) else ''
+    if slug_str and slug_str.lower() not in ('nan', 'none', ''):
+        myscheme_url = f"https://www.myscheme.gov.in/schemes/{slug_str}"
     else:
-        encoded_query = urllib.parse.quote(str(row['scheme_name']))
+        encoded_query = urllib.parse.quote(str(row.get('scheme_name', '')))
         myscheme_url = f"https://www.myscheme.gov.in/search?q={encoded_query}"
 
     # Rich Details from updated_data.csv styled into structured drawer cards
@@ -1342,8 +1346,8 @@ def render_scheme_card(row, method: str):
 </div>
 {f'<div class="drawer-tags-wrap"><div class="drawer-tags-label">Tags:</div><div class="drawer-tags">{tag_elements}</div></div>' if tag_elements else ''}
 <div style="margin-top: 14px;">
-<a href="{myscheme_url}" target="_blank" class="drawer-action-btn">
-<span>Check Official Portal</span>
+<a href="{myscheme_url}" target="_blank" rel="noopener noreferrer" class="drawer-action-btn">
+<span>Verify on Official Portal (myscheme.gov.in)</span>
 {ext_link_svg}
 </a>
 </div>

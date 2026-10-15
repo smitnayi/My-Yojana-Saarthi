@@ -47,6 +47,22 @@ def load_index():
     print("Loading search index...")
     _embeddings = np.load(embeddings_path)
     _df = pd.read_csv(csv_path)
+
+    # Enrich metadata from updated_data.csv if available (benefits, eligibility, application, documents, details, slug)
+    updated_path = os.path.join(_BASE_DIR, "updated_data.csv")
+    if os.path.exists(updated_path):
+        up_df = pd.read_csv(updated_path)
+        if "slug" in up_df.columns:
+            up_df = up_df.drop_duplicates(subset=["slug"])
+            cols_to_merge = ["slug", "details", "benefits", "eligibility", "application", "documents"]
+            avail_cols = [c for c in cols_to_merge if c in up_df.columns]
+            _df = _df.merge(up_df[avail_cols], left_on="scheme_id", right_on="slug", how="left")
+            if "slug" not in _df.columns:
+                _df["slug"] = _df["scheme_id"]
+            else:
+                _df["slug"] = _df["slug"].fillna(_df["scheme_id"])
+        print(f"  Enriched metadata with updated_data.csv ({len(_df)} rows preserved)")
+
     _model = SentenceTransformer("all-MiniLM-L6-v2")
 
     # Load synonym map for query expansion (optional — graceful fallback)
