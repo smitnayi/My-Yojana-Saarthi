@@ -171,18 +171,18 @@ def get_svg_icon(name: str, size: int = 16, stroke_width: float = 1.8, color: st
 
 CUSTOM_CSS = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* Base Reset & Modern Font */
 html, body, [class*="css"], [class*="st-"] {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-/* Crisp Clean Light Background with Subtle Ambient Glow */
+/* Crisp Clean Light Background with Gentle Eye-Friendly Ambient Glow */
 .stApp {
     background-color: #F8FAFC !important;
     background-image: 
-        radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.08) 0%, rgba(248, 250, 252, 0) 65%),
+        radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.07) 0%, rgba(248, 250, 252, 0) 60%),
         radial-gradient(circle at 100% 30%, rgba(14, 165, 233, 0.05) 0%, rgba(248, 250, 252, 0) 50%) !important;
     color: #0F172A !important;
 }
@@ -197,7 +197,7 @@ header[data-testid="stHeader"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0 24px 0;
+    padding: 14px 0 22px 0;
     margin-bottom: 24px;
     border-bottom: 1px solid #E2E8F0;
 }
@@ -241,109 +241,326 @@ header[data-testid="stHeader"] {
     gap: 8px;
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
-    padding: 7px 14px;
+    padding: 7px 16px;
     border-radius: 9999px;
-    font-size: 0.76rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    color: #475569;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    color: #334155;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .brand-meta-badge span.pulse-dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     background: #10B981;
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
 }
 
-/* Hero Headline & Instructions */
+/* Hero Section */
+.hero-container {
+    margin-bottom: 22px;
+}
+
 .hero-headline {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     color: #0F172A;
     line-height: 1.25;
     margin-bottom: 8px;
 }
 
-.hero-description {
-    font-size: 0.95rem;
-    color: #475569;
-    line-height: 1.6;
-    max-width: 820px;
-    margin-bottom: 24px;
+.hero-highlight {
+    background: linear-gradient(135deg, #4F46E5 0%, #0284C7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Modern Spotlight Search Box */
+.hero-subtitle {
+    font-size: 1.0rem;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Pinterest & Mobbin Inspired Floating Pill Search Input */
 div[data-testid="stTextInput"] {
-    margin-bottom: 14px !important;
+    margin-bottom: 0px !important;
 }
 
 div[data-testid="stTextInput"] > div > div > input {
-    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     border: 1.5px solid #CBD5E1 !important;
-    border-radius: 14px !important;
+    border-radius: 9999px !important;
     color: #0F172A !important;
-    padding: 16px 20px !important;
+    padding: 14px 24px 14px 54px !important;
     font-size: 1.02rem !important;
-    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03) !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    font-weight: 500 !important;
+    min-height: 52px !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%236366F1' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 20px center !important;
+    background-size: 22px 22px !important;
+}
+
+div[data-testid="stTextInput"] > div > div > input:hover {
+    border-color: #94A3B8 !important;
+    box-shadow: 0 6px 24px -2px rgba(15, 23, 42, 0.09) !important;
 }
 
 div[data-testid="stTextInput"] > div > div > input:focus {
     border-color: #4F46E5 !important;
-    background: #FFFFFF !important;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15), 0 8px 24px rgba(79, 70, 229, 0.08) !important;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), 0 12px 30px -4px rgba(99, 102, 241, 0.12) !important;
 }
 
 div[data-testid="stTextInput"] > div > div > input::placeholder {
-    color: #94A3B8 !important;
-    font-size: 0.96rem !important;
+    color: #64748B !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
 }
 
-/* Quick Prompt Action Pills */
+/* Action button in search bar row (Search / Clear) */
+button[kind="primary"] {
+    background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%) !important;
+    border: 1px solid #4338CA !important;
+    color: #FFFFFF !important;
+    border-radius: 9999px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    min-height: 52px !important;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%) !important;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Clear button alongside search */
+button[key="clear_search_btn"],
+div:has(> button[key="clear_search_btn"]) button {
+    border-radius: 9999px !important;
+    min-height: 52px !important;
+    border: 1.5px solid #CBD5E1 !important;
+    background: #FFFFFF !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+button[key="clear_search_btn"]:hover,
+div:has(> button[key="clear_search_btn"]) button:hover {
+    background: #F1F5F9 !important;
+    color: #0F172A !important;
+    border-color: #94A3B8 !important;
+}
+
+/* Pinterest-style Trending Scenarios Ribbon & Pills */
 .prompt-shelf-label {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #64748B;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 10px;
+    margin-top: 18px;
+    margin-bottom: 12px;
 }
 
+/* Scenario Quick-Pill Buttons */
 div[data-testid="stHorizontalBlock"] button {
-    border-radius: 10px !important;
+    border-radius: 9999px !important;
     border: 1px solid #E2E8F0 !important;
-    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
     color: #334155 !important;
-    font-size: 0.82rem !important;
-    font-weight: 500 !important;
-    padding: 8px 12px !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    padding: 8px 16px !important;
     min-height: 42px !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
-    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 div[data-testid="stHorizontalBlock"] button:hover {
     border-color: #818CF8 !important;
-    background: #EEF2FF !important;
+    background-color: #EEF2FF !important;
     color: #4338CA !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.15) !important;
 }
 
-/* Unified Self-Contained Scheme Card */
+div[data-testid="stHorizontalBlock"] button:active {
+    transform: translateY(0) !important;
+}
+
+/* Sidebar High-Contrast Styling (WCAG AAA) */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E2E8F0 !important;
+    padding-top: 2rem !important;
+}
+
+.sidebar-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1E293B;
+    margin-top: 14px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] label p,
+section[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p {
+    color: #1E293B !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+}
+
+/* Selectbox Dropdowns in Sidebar */
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] > div > div {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #CBD5E1 !important;
+    border-radius: 10px !important;
+    color: #0F172A !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.2s ease !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] > div > div:hover {
+    border-color: #94A3B8 !important;
+    background-color: #F8FAFC !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] > div > div:focus-within {
+    border-color: #4F46E5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12) !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] span,
+section[data-testid="stSidebar"] div[data-testid="stSelectbox"] div {
+    color: #0F172A !important;
+    font-weight: 600 !important;
+}
+
+/* BaseWeb Popover Menu for Dropdowns */
+div[data-baseweb="popover"],
+ul[data-baseweb="menu"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12) !important;
+}
+
+ul[data-baseweb="menu"] li {
+    color: #1E293B !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    transition: all 0.15s ease !important;
+}
+
+ul[data-baseweb="menu"] li:hover,
+ul[data-baseweb="menu"] li[aria-selected="true"] {
+    background-color: #EEF2FF !important;
+    color: #4338CA !important;
+    font-weight: 600 !important;
+}
+
+/* Radio Buttons in Sidebar */
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] label {
+    color: #334155 !important;
+    font-size: 0.86rem !important;
+    font-weight: 500 !important;
+    padding: 3px 0 !important;
+    transition: color 0.15s ease !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] label:hover {
+    color: #4F46E5 !important;
+}
+
+/* Slider Controls */
+section[data-testid="stSidebar"] div[data-testid="stSlider"] div[data-testid="stThumbValue"] {
+    color: #4F46E5 !important;
+    font-weight: 700 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.86rem !important;
+}
+
+section[data-testid="stSidebar"] div[data-testid="stSlider"] div[data-testid="stTickBarMin"],
+section[data-testid="stSidebar"] div[data-testid="stSlider"] div[data-testid="stTickBarMax"] {
+    color: #64748B !important;
+    font-weight: 600 !important;
+    font-size: 0.76rem !important;
+}
+
+/* Toggle Switch */
+section[data-testid="stSidebar"] div[data-testid="stToggle"] label p {
+    color: #1E293B !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+}
+
+/* Architecture Specs Box */
+.tech-spec-box {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.tech-spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.tech-spec-item:last-child {
+    border-bottom: none;
+}
+
+.tech-spec-key {
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.77rem;
+}
+
+.tech-spec-val {
+    color: #0F172A;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 0.76rem;
+    background: #FFFFFF;
+    padding: 2px 7px;
+    border-radius: 6px;
+    border: 1px solid #E2E8F0;
+}
+
+/* Unified Self-Contained Scheme Card (Mobbin Inspired) */
 .scheme-card {
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 16px;
     padding: 22px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
@@ -364,14 +581,14 @@ div[data-testid="stHorizontalBlock"] button:hover {
 }
 
 .scheme-title {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #0F172A;
     line-height: 1.35;
     letter-spacing: -0.015em;
 }
 
-/* Match Score Badges */
+/* Match Score Badges with High Contrast */
 .score-badge {
     display: inline-flex;
     align-items: center;
@@ -392,9 +609,9 @@ div[data-testid="stHorizontalBlock"] button:hover {
 }
 
 .score-mid {
-    background: #F0F9FF;
-    color: #0284C7;
-    border: 1px solid #BAE6FD;
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
 }
 
 .score-low {
@@ -418,7 +635,7 @@ div[data-testid="stHorizontalBlock"] button:hover {
     gap: 6px;
     padding: 4px 10px;
     border-radius: 8px;
-    font-size: 0.76rem;
+    font-size: 0.77rem;
     font-weight: 600;
     background: #F8FAFC;
     color: #475569;
@@ -446,16 +663,16 @@ div[data-testid="stHorizontalBlock"] button:hover {
 
 /* Card Description Snippet */
 .scheme-desc {
-    color: #475569;
+    color: #334155;
     font-size: 0.92rem;
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 14px;
 }
 
-/* Collapsible Details Drawer Inside the Card */
+/* Collapsible Details Drawer Inside Card */
 details.scheme-drawer {
     border-top: 1px solid #E2E8F0;
-    padding-top: 12px;
+    padding-top: 10px;
     margin-top: 10px;
 }
 
@@ -465,12 +682,15 @@ details.scheme-drawer summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.82rem;
+    font-size: 0.83rem;
     font-weight: 600;
     color: #4F46E5;
     user-select: none;
-    padding: 6px 0;
-    transition: color 0.15s ease;
+    padding: 9px 14px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    transition: all 0.2s ease;
 }
 
 details.scheme-drawer summary::-webkit-details-marker {
@@ -478,6 +698,8 @@ details.scheme-drawer summary::-webkit-details-marker {
 }
 
 details.scheme-drawer summary:hover {
+    background: #EEF2FF;
+    border-color: #C7D2FE;
     color: #4338CA;
 }
 
@@ -492,18 +714,97 @@ details.scheme-drawer[open] .chevron-icon {
 .drawer-trigger-left {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 .drawer-content {
-    padding: 16px;
-    margin-top: 10px;
+    padding: 16px 18px;
+    margin-top: 12px;
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
     border-radius: 12px;
     font-size: 0.88rem;
     color: #334155;
     line-height: 1.6;
+}
+
+/* Structured Drawer Section Cards */
+.drawer-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.drawer-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.drawer-card-body {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.drawer-overview {
+    border-left: 3px solid #6366F1;
+}
+.drawer-overview .drawer-card-header {
+    color: #4338CA;
+}
+
+.drawer-benefits {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-left: 3px solid #10B981;
+}
+.drawer-benefits .drawer-card-header {
+    color: #047857;
+}
+.drawer-benefits .drawer-card-body {
+    color: #14532D;
+}
+
+.drawer-eligibility {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-left: 3px solid #3B82F6;
+}
+.drawer-eligibility .drawer-card-header {
+    color: #1D4ED8;
+}
+.drawer-eligibility .drawer-card-body {
+    color: #1E3A8A;
+}
+
+.drawer-application {
+    background: #FAF5FF;
+    border: 1px solid #E9D5FF;
+    border-left: 3px solid #8B5CF6;
+}
+.drawer-application .drawer-card-header {
+    color: #6D28D9;
+}
+.drawer-application .drawer-card-body {
+    color: #4C1D95;
+}
+
+.drawer-documents {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-left: 3px solid #F59E0B;
+}
+.drawer-documents .drawer-card-header {
+    color: #B45309;
+}
+.drawer-documents .drawer-card-body {
+    color: #78350F;
 }
 
 .drawer-grid {
@@ -515,106 +816,78 @@ details.scheme-drawer[open] .chevron-icon {
     border-top: 1px solid #E2E8F0;
 }
 
+.drawer-grid-item {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
 .drawer-item-label {
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: #64748B;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .drawer-item-val {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: #0F172A;
     font-weight: 600;
+}
+
+.drawer-tags-wrap {
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.drawer-tags-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748B;
+    margin-bottom: 6px;
 }
 
 .drawer-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-top: 12px;
 }
 
 .drawer-tag-chip {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
+    font-weight: 500;
     color: #475569;
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
     border-radius: 6px;
-    padding: 2px 8px;
+    padding: 3px 9px;
 }
 
 .drawer-action-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 14px;
-    padding: 7px 14px;
-    border-radius: 8px;
-    background: #4F46E5;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
     border: 1px solid #4338CA;
     color: #FFFFFF !important;
     text-decoration: none !important;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    box-shadow: 0 1px 3px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
     transition: all 0.2s ease;
 }
 
 .drawer-action-btn:hover {
-    background: #4338CA;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%);
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    transform: translateY(-1px);
     color: #FFFFFF !important;
-}
-
-/* Sidebar Styling */
-section[data-testid="stSidebar"] {
-    background-color: #FFFFFF !important;
-    border-right: 1px solid #E2E8F0 !important;
-}
-
-.sidebar-heading {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #334155;
-    margin-bottom: 12px;
-}
-
-.tech-spec-box {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 0.78rem;
-    color: #475569;
-    line-height: 1.6;
-}
-
-.tech-spec-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
-    border-bottom: 1px solid #E2E8F0;
-}
-
-.tech-spec-item:last-child {
-    border-bottom: none;
-}
-
-.tech-spec-key {
-    color: #64748B;
-}
-
-.tech-spec-val {
-    color: #0F172A;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
 }
 
 /* Comparison View Column Subheaders */
@@ -646,41 +919,43 @@ section[data-testid="stSidebar"] {
 .feature-card {
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
-    border-radius: 14px;
-    padding: 22px;
+    border-radius: 16px;
+    padding: 24px;
     height: 100%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .feature-card:hover {
     border-color: #818CF8;
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -4px rgba(99, 102, 241, 0.12);
 }
 
 .feature-icon-box {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: #EEF2FF;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(14, 165, 233, 0.1) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.2);
     color: #4F46E5;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .feature-title {
-    font-size: 0.96rem;
+    font-size: 1.02rem;
     font-weight: 700;
     color: #0F172A;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .feature-body {
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     color: #475569;
-    line-height: 1.55;
+    line-height: 1.6;
 }
 </style>
 """
@@ -802,11 +1077,14 @@ with st.sidebar:
 
 render_html(
     """
-    <div class="hero-headline" style="margin-bottom: 24px;">Find government schemes tailored to your situation.</div>
+    <div class="hero-container">
+        <div class="hero-headline">Find government schemes <span class="hero-highlight">tailored to your situation.</span></div>
+        <div class="hero-subtitle">Search over 4,600 central & state welfare programs using natural language. Just describe your background, need, or life scenario.</div>
+    </div>
     """
 )
 
-# ── Prompt Shelf (2x3 Clean Grid, Zero Emojis) ────────────────────────────────
+# ── Search Input (Pinterest & Mobbin Inspired Floating Pill) ──────────────────
 
 if "search_query" not in st.session_state:
     st.session_state.search_query = ""
@@ -814,23 +1092,40 @@ if "search_query" not in st.session_state:
 def set_quick_query(prompt: str):
     st.session_state.search_query = prompt
 
-prompts = [
-    ("laptop", "College Student Laptop", "college student laptop assistance"),
-    ("sprout", "Farmer Equipment Loan", "my father is a farmer and needs a loan for equipment"),
-    ("heart", "Widow School Allowance", "financial help for widow with school-going children"),
-    ("sun", "Rooftop Solar Subsidy", "subsidy for solar panel installation on rooftop"),
-    ("wheelchair", "Disability Fellowship", "fellowship for disabled students in higher education"),
-    ("briefcase", "Rural Startup Funding", "I want to start a small business in rural area")
-]
+col_search, col_action = st.columns([5, 1], gap="small")
+with col_search:
+    query = st.text_input(
+        "Search Welfare Schemes",
+        key="search_query",
+        placeholder="Describe your situation (e.g. 'college student laptop loan' or 'subsidy for solar rooftop')...",
+        label_visibility="collapsed"
+    )
+with col_action:
+    if st.session_state.get("search_query", ""):
+        if st.button("✕ Clear", key="clear_search_btn", use_container_width=True):
+            st.session_state.search_query = ""
+            st.rerun()
+    else:
+        st.button("Search", type="primary", key="main_search_btn", use_container_width=True)
+
+# ── Pinterest-Style Trending Scenarios / Quick Filter Chips ────────────────────
 
 render_html(
-    f'<div class="prompt-shelf-label">{get_svg_icon("sparkles", size=14, color="#4F46E5")} Suggested Prompt Scenarios</div>'
+    f'<div class="prompt-shelf-label">{get_svg_icon("sparkles", size=14, color="#4F46E5")} <span>Popular Scenarios & Suggested Searches</span></div>'
 )
 
-# Render in 2 rows of 3 columns for balanced width
+prompts = [
+    ("🎓  College Student Laptop", "college student laptop assistance"),
+    ("🌾  Farmer Equipment Loan", "my father is a farmer and needs a loan for equipment"),
+    ("👩‍👧  Widow School Allowance", "financial help for widow with school-going children"),
+    ("☀️  Rooftop Solar Subsidy", "subsidy for solar panel installation on rooftop"),
+    ("♿  Disability Fellowship", "fellowship for disabled students in higher education"),
+    ("💼  Rural Startup Funding", "I want to start a small business in rural area")
+]
+
 row1_cols = st.columns(3)
 for idx in range(3):
-    icon_name, label, prompt_val = prompts[idx]
+    label, prompt_val = prompts[idx]
     with row1_cols[idx]:
         st.button(
             label,
@@ -842,7 +1137,7 @@ for idx in range(3):
 
 row2_cols = st.columns(3)
 for idx in range(3, 6):
-    icon_name, label, prompt_val = prompts[idx]
+    label, prompt_val = prompts[idx]
     with row2_cols[idx - 3]:
         st.button(
             label,
@@ -852,16 +1147,7 @@ for idx in range(3, 6):
             use_container_width=True
         )
 
-st.markdown("<br>", unsafe_allow_html=True)
-
-# ── Search Input ──────────────────────────────────────────────────────────────
-
-query = st.text_input(
-    "Search Input",
-    key="search_query",
-    placeholder="Describe your situation (e.g. 'I am a disabled college student seeking scholarship or laptop assistance')...",
-    label_visibility="collapsed"
-)
+st.markdown("<div style='margin-bottom: 24px;'></div>", unsafe_allow_html=True)
 
 # ── Self-Contained Card Renderer ──────────────────────────────────────────────
 
@@ -949,54 +1235,54 @@ def render_scheme_card(row, method: str):
         encoded_query = urllib.parse.quote(str(row['scheme_name']))
         myscheme_url = f"https://www.myscheme.gov.in/search?q={encoded_query}"
 
-    # Rich Details from updated_data.csv
+    # Rich Details from updated_data.csv styled into structured drawer cards
     benefits_val = str(row.get('benefits', '')).strip()
     benefits_html = ""
     if benefits_val and benefits_val != 'nan':
         benefits_clean = html.escape(benefits_val).replace("\n", "<br>")
-        sparkle_icon = get_svg_icon("sparkles", size=14, color="#059669")
+        sparkle_icon = get_svg_icon("sparkles", size=15, color="#059669")
         benefits_html = f"""
-<div style="font-weight: 700; color: #047857; margin-top: 14px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;">
-    {sparkle_icon} Key Scheme Benefits:
-</div>
-<div style="margin-bottom: 12px; color: #334155; font-size: 0.88rem; line-height: 1.6;">{benefits_clean}</div>
-"""
+        <div class="drawer-card drawer-benefits">
+            <div class="drawer-card-header">{sparkle_icon} <span>Key Scheme Benefits</span></div>
+            <div class="drawer-card-body">{benefits_clean}</div>
+        </div>
+        """
 
     eligibility_val = str(row.get('eligibility', '')).strip()
     eligibility_html = ""
     if eligibility_val and eligibility_val != 'nan':
         eligibility_clean = html.escape(eligibility_val).replace("\n", "<br>")
-        shield_icon = get_svg_icon("shield-check", size=14, color="#2563EB")
+        shield_icon = get_svg_icon("shield-check", size=15, color="#2563EB")
         eligibility_html = f"""
-<div style="font-weight: 700; color: #1D4ED8; margin-top: 14px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;">
-    {shield_icon} Eligibility Criteria:
-</div>
-<div style="margin-bottom: 12px; color: #334155; font-size: 0.88rem; line-height: 1.6;">{eligibility_clean}</div>
-"""
+        <div class="drawer-card drawer-eligibility">
+            <div class="drawer-card-header">{shield_icon} <span>Eligibility Criteria</span></div>
+            <div class="drawer-card-body">{eligibility_clean}</div>
+        </div>
+        """
 
     application_val = str(row.get('application', '')).strip()
     application_html = ""
     if application_val and application_val != 'nan':
         application_clean = html.escape(application_val).replace("\n", "<br>")
-        layers_icon = get_svg_icon("layers", size=14, color="#7C3AED")
+        layers_icon = get_svg_icon("layers", size=15, color="#7C3AED")
         application_html = f"""
-<div style="font-weight: 700; color: #6D28D9; margin-top: 14px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;">
-    {layers_icon} Application Process:
-</div>
-<div style="margin-bottom: 12px; color: #334155; font-size: 0.88rem; line-height: 1.6;">{application_clean}</div>
-"""
+        <div class="drawer-card drawer-application">
+            <div class="drawer-card-header">{layers_icon} <span>Application Process</span></div>
+            <div class="drawer-card-body">{application_clean}</div>
+        </div>
+        """
 
     documents_val = str(row.get('documents', '')).strip()
     documents_html = ""
     if documents_val and documents_val != 'nan':
         documents_clean = html.escape(documents_val).replace("\n", "<br>")
-        tag_icon = get_svg_icon("tag", size=14, color="#D97706")
+        tag_icon = get_svg_icon("tag", size=15, color="#D97706")
         documents_html = f"""
-<div style="font-weight: 700; color: #B45309; margin-top: 14px; margin-bottom: 5px; display: flex; align-items: center; gap: 6px;">
-    {tag_icon} Required Documents:
-</div>
-<div style="margin-bottom: 12px; color: #334155; font-size: 0.88rem; line-height: 1.6;">{documents_clean}</div>
-"""
+        <div class="drawer-card drawer-documents">
+            <div class="drawer-card-header">{tag_icon} <span>Required Documents</span></div>
+            <div class="drawer-card-body">{documents_clean}</div>
+        </div>
+        """
 
     chevron_svg = get_svg_icon("chevron-down", size=14, color="#4F46E5", extra_class="chevron-icon")
     ext_link_svg = get_svg_icon("external-link", size=13, color="#FFFFFF")
@@ -1028,32 +1314,34 @@ def render_scheme_card(row, method: str):
 {chevron_svg}
 </summary>
 <div class="drawer-content">
-<div style="font-weight: 700; color: #0F172A; margin-bottom: 6px;">Program Overview:</div>
-<div style="margin-bottom: 14px; color: #334155; font-size: 0.88rem; line-height: 1.6;">{full_desc_clean}</div>
+<div class="drawer-card drawer-overview">
+    <div class="drawer-card-header">{info_icon_svg} <span>Program Overview</span></div>
+    <div class="drawer-card-body">{full_desc_clean}</div>
+</div>
 {benefits_html}
 {eligibility_html}
 {application_html}
 {documents_html}
 <div class="drawer-grid">
-<div>
+<div class="drawer-grid-item">
 <div class="drawer-item-label">Jurisdiction</div>
 <div class="drawer-item-val">{html.escape(level_val)} ({state_val})</div>
 </div>
-<div>
+<div class="drawer-grid-item">
 <div class="drawer-item-label">Sector Category</div>
 <div class="drawer-item-val">{html.escape(category_val) if category_val else 'General Welfare'}</div>
 </div>
-<div>
+<div class="drawer-grid-item">
 <div class="drawer-item-label">Nodal Ministry</div>
 <div class="drawer-item-val">{ministry_val_clean if has_ministry else 'State Government / Local Authority'}</div>
 </div>
-<div>
+<div class="drawer-grid-item">
 <div class="drawer-item-label">Identifier Slug</div>
 <div class="drawer-item-val" style="font-family: 'JetBrains Mono', monospace; font-size: 0.76rem;">{html.escape(str(row.get('slug', row.get('scheme_id', 'N/A'))))}</div>
 </div>
 </div>
-{f'<div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #64748B; margin-top: 12px;">Classification Tags:</div><div class="drawer-tags">{tag_elements}</div>' if tag_elements else ''}
-<div>
+{f'<div class="drawer-tags-wrap"><div class="drawer-tags-label">Tags:</div><div class="drawer-tags">{tag_elements}</div></div>' if tag_elements else ''}
+<div style="margin-top: 14px;">
 <a href="{myscheme_url}" target="_blank" class="drawer-action-btn">
 <span>Check Official Portal</span>
 {ext_link_svg}

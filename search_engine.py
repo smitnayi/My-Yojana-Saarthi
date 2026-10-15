@@ -56,7 +56,7 @@ def load_index():
         print(f"  Loaded synonym map: {len(_synonym_map)} entries")
     else:
         _synonym_map = {}
-        print("  No synonym_map.json found — query expansion disabled")
+        print("  No synonym_map.json found - query expansion disabled")
 
     # Build BM25 index on 100% full unclipped scheme text (excluding documents and application)
     print("  Building BM25 index on full-row content (name, tags, eligibility, benefits, details)...")
@@ -151,7 +151,7 @@ def expand_query(query: str) -> str:
     expanded_query = " ".join(expanded)
 
     if expanded_query != query_lower:
-        print(f"  [Query Expansion] '{query}' → '{expanded_query}'")
+        print(f"  [Query Expansion] '{query}' -> '{expanded_query}'")
 
     return expanded_query
 
